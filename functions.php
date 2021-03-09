@@ -159,3 +159,20 @@ function wpb_add_googleanalytics() { ?>
 // Paste Google Analytics tracking code
  
 }
+
+// Change login logo
+
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/admin/login-logo.png);
+			height:165px;
+			width:165px;
+			background-size: 165px 165px;
+			background-repeat: no-repeat;
+			padding-bottom: 30px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
