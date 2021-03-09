@@ -91,3 +91,12 @@ function smartwp_remove_jquery_migrate( $scripts ) {
   }
 }
 add_action('wp_default_scripts', 'smartwp_remove_jquery_migrate');
+
+
+// Add Analytics do head
+add_action('wp_head', 'wpb_add_googleanalytics');
+function wpb_add_googleanalytics() { ?>
+ 
+// Paste Google Analytics tracking code
+ 
+}
