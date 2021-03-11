@@ -162,7 +162,7 @@ function wpb_add_googleanalytics() { ?>
 
 // Change login logo
 
-function my_login_logo() { ?>
+function pec_login_logo() { ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
             background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/admin/login-logo.png);
@@ -174,5 +174,17 @@ function my_login_logo() { ?>
         }
     </style>
 <?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
+add_action( 'login_enqueue_scripts', 'pec_login_logo' );
 
+// Enqueue google fonts
+
+function pec_add_google_fonts() {
+ 
+wp_enqueue_style( 'pec-google-fonts', 'https://fonts.googleapis.com/css?name-of-the-font-and-styles', false ); 
+}
+ 
+add_action( 'wp_enqueue_scripts', 'pec_add_google_fonts' );
+
+// Remove wlwmanifest
+
+remove_action('wp_head', 'wlwmanifest_link');
