@@ -10,7 +10,7 @@ remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
 remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
 remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
 remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
-remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');//since 3.8
+remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');
 }
 
 //Disable WordPress admin bar for all logged in users
@@ -217,3 +217,31 @@ function disable_emojis_tinymce( $plugins ) {
 	}
 }
 
+// Remove customizer default options
+// Also remove settings
+$wp_customize->remove_control('blogdescription');
+$wp_customize->remove_setting('blogdescription');
+$wp_customize->remove_control('blogname');
+$wp_customize->remove_setting('blogname');
+
+
+add_action( "customize_register", "pec_theme_customize_register" );
+function pec_theme_customize_register( $wp_customize ) {
+// Remove blog description and blog name option
+// Also remove settings
+$wp_customize->remove_control('blogdescription');
+$wp_customize->remove_setting('blogdescription');
+$wp_customize->remove_control('blogname');
+$wp_customize->remove_setting('blogname');
+
+// Remove header image and widgets option
+$wp_customize->remove_control("header_image");
+$wp_customize->remove_setting('header_image');
+$wp_customize->remove_panel("widgets");
+
+
+ // Remove Colors, Background image, and Static front page 
+ $wp_customize->remove_section("colors");
+ $wp_customize->remove_section("background_image");
+ $wp_customize->remove_section("static_front_page");
+}
