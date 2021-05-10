@@ -245,3 +245,29 @@ $wp_customize->remove_panel("widgets");
  $wp_customize->remove_section("background_image");
  $wp_customize->remove_section("static_front_page");
 }
+
+// Remove widgets from widgets panel
+
+function unregister_default_wp_widgets() {
+// WP_Widget_Pages = Pages Widget
+// WP_Widget_Calendar = Calendar Widget
+// WP_Widget_Archives = Archives Widget
+// WP_Widget_Links = Links Widget
+// WP_Widget_Media_Audio = Audio Player Media Widget
+// WP_Widget_Media_Image = Image Media Widget
+// WP_Widget_Media_Video = Video Media Widget
+// WP_Widget_Media_Gallery = Gallery Media Widget
+// WP_Widget_Meta = Meta Widget
+// WP_Widget_Search = Search Widget
+// WP_Widget_Text = Text Widget
+// WP_Widget_Categories = Categories Widget
+// WP_Widget_Recent_Posts = Recent Posts Widget
+// WP_Widget_Recent_Comments = Recent Comments Widget
+// WP_Widget_RSS = RSS Widget
+// WP_Widget_Tag_Cloud = Tag Cloud Widget
+// WP_Nav_Menu_Widget = Menus Widget
+// WP_Widget_Custom_HTML = Custom HTML Widget
+     unregister_widget('WP_Widget_Tag_Cloud');
+}
+add_action('widgets_init', 'unregister_default_wp_widgets' );
+ 
