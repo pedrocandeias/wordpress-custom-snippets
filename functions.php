@@ -270,4 +270,23 @@ function unregister_default_wp_widgets() {
      unregister_widget('WP_Widget_Tag_Cloud');
 }
 add_action('widgets_init', 'unregister_default_wp_widgets' );
+
+/* Custom dashboard widget */
+
+add_action('wp_dashboard_setup', 'custom_dashboard_widgets');
+
+function custom_dashboard_widgets()
+{
+    global $wp_meta_boxes;
+    global $blog_id;
+    if ($blog_id == 1) {
+    } else {
+        wp_add_dashboard_widget('custom_help_widget', 'The title here', 'custom_dashboard_help');
+    }
+}
+
+function custom_dashboard_help()
+{
+    echo 'Just add html';
+}
  
